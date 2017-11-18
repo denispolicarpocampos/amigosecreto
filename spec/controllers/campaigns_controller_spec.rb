@@ -4,8 +4,6 @@ RSpec.describe CampaignsController, type: :controller do
   include Devise::Test::ControllerHelpers
 
   before(:each) do
-    # request.env["HTTP_ACCEPT"] = 'application/json'
-
     @request.env["devise.mapping"] = Devise.mappings[:user]
     @current_user = FactoryGirl.create(:user)
     sign_in @current_user
@@ -59,10 +57,10 @@ RSpec.describe CampaignsController, type: :controller do
       expect(response).to redirect_to("/campaigns/#{Campaign.last.id}")
     end
 
-    it "Create campaign with right attributes" do
+    it "Create campaign with initial params" do
       expect(Campaign.last.user).to eql(@current_user)
-      expect(Campaign.last.title).to eql(@campaign_attributes[:title])
-      expect(Campaign.last.description).to eql(@campaign_attributes[:description])
+      expect(Campaign.last.title).to eql("Nova Campanha")
+      expect(Campaign.last.description).to eql("Descreva sua campanha...")
       expect(Campaign.last.status).to eql('pending')
     end
 
@@ -135,7 +133,7 @@ RSpec.describe CampaignsController, type: :controller do
         @campaign = create(:campaign, user: @current_user)
       end
 
-      context "Has more than two members" do
+      context "Members => 3" do
         before(:each) do
           create(:member, campaign: @campaign)
           create(:member, campaign: @campaign)
@@ -148,7 +146,7 @@ RSpec.describe CampaignsController, type: :controller do
         end
       end
 
-      context "No more than two members" do
+      context "Members < 3" do
         before(:each) do
           create(:member, campaign: @campaign)
           post :raffle, params: {id: @campaign.id}
