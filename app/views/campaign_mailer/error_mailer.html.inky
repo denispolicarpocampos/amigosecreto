@@ -30,9 +30,7 @@
   <row>
     <columns>
       <spacer size="4"></spacer>
-      <p class="text-center">Olá <%= @member.name %>, o <%= @campaign.user.name %> criou uma campanha de amigo secreto no site Nosso Amigo Secreto e incluiu você. Logo a baixo voce pode saber com querm saiu.</p>
-      <spacer size="8"></spacer>
-      <p class="text-center">Seu amigo secreto é:&nbsp;<b><u><%= @friend.name %></u></b></p>
+      <p class="text-center">Olá <%= @campaign.user.name %>, infelizmente houve um erro ao enviar os emails referentes a sua campanha, tente novamente mais tarde!</p>
       <spacer size="8"></spacer>
       <center>
         <button href="http://onebitcode.com" class="" >Crie sua campanha também</button>
