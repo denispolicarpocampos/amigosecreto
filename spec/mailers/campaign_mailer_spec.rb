@@ -6,6 +6,7 @@ RSpec.describe CampaignMailer, type: :mailer do
     before do
       @campaign = create(:campaign)
       @member   = create(:member, campaign: @campaign)
+      @friend   = create(:member, campaign: @campaign)
       @mail = CampaignMailer.raffle(@campaign, @member, @friend)
     end
 
