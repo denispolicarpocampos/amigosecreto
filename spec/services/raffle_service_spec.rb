@@ -13,7 +13,6 @@ describe RaffleService do
         create(:member, campaign: @campaign)
         create(:member, campaign: @campaign)
         @campaign.reload
-
         @results = RaffleService.new(@campaign).call
       end
 
@@ -38,7 +37,7 @@ describe RaffleService do
       end
 
       it "a member x don't get a member y that get the member x" do
-        # Desafio
+        expect(@results.select{|member, friend| @results[friend] == member}).to be_empty
       end
 
     end
@@ -52,6 +51,7 @@ describe RaffleService do
       end
 
       it "raise error" do
+
         expect(@response).to eql(false)
       end
     end
