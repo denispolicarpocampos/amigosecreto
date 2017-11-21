@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
   def render_404
     redirect_to main_app.root_url
   end
+
+  def after_sign_in_path_for(resource)
+    resource.campaigns.present? ? campaigns_url : root_url
+  end
 end
