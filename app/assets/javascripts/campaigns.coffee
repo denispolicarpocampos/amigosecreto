@@ -22,6 +22,7 @@ $(document).on 'turbolinks:load', ->
     return false
 
   $('.remove_campaign_form').on 'submit', (e) ->
+    e.preventDefault()
     $.ajax e.target.action,
         type: 'DELETE'
         dataType: 'json',

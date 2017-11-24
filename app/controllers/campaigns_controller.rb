@@ -37,7 +37,7 @@ class CampaignsController < ApplicationController
     @campaign.destroy
 
     respond_to do |format|
-      format.html { redirect_to campaigns_path }
+      format.json { render json: true }
     end
   end
 
