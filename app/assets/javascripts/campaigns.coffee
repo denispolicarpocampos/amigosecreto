@@ -18,11 +18,9 @@ $(document).on 'turbolinks:load', ->
 
   $('.remove_campaign').click (e) ->
     $('#remove_campaign_modal').modal('open')
-    $('.remove_campaign_form').attr('action', 'campaigns/' + e.target.id)
     return false
 
   $('.remove_campaign_form').on 'submit', (e) ->
-    e.preventDefault()
     $.ajax e.target.action,
         type: 'DELETE'
         dataType: 'json',
