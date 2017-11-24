@@ -19,6 +19,23 @@ $(document).on 'turbolinks:load', ->
           Materialize.toast('Problema na remoção de membro', 4000, 'red')
     return false
 
+
+  $('div.member_list').on 'blur', '.member input', (e) ->
+    url = $(this).closest(".member").data("url")
+    attr = $(this).attr("id")
+    value = $(this).val()
+    data = {}
+    data[attr] = value
+    $.ajax url,
+      type: "PATCH"
+      dataType: "json",
+      data: { member: data }
+      success: (data, text, jqXHR) ->
+        Materialize.toast('Membro atualizado!', 4000, 'green')
+      error: (jqXHR, textStatus, errorThrown) ->
+        Materialize.toast('Problema na atualização do membro', 4000, 'red')
+
+
   $('.new_member').on 'submit', (e) ->
     $.ajax e.target.action,
         type: 'POST'
@@ -39,7 +56,7 @@ valid_email = (email) ->
 
 insert_member = (id, name, email) ->
   $('.member_list').append(
-    '<div class="member" id="member_' + id + '">' +
+    '<div class="member" id="member_' + id + '" data-url="/members/' +id+ '">' +
       '<div class="row">' +
         '<div class="col s12 m5 input-field">' +
           '<input id="name" type="text" class="validate" value="' + name + '">' +

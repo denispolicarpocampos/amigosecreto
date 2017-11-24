@@ -1,0 +1,17 @@
+<div id="remove_campaign_modal" class="modal">
+    <div class="modal-content">
+        <div class="row">
+            <%= form_for(@campaign, :method => :delete, class: "col s12 remove_campaing_form") do %>
+                <div class="row">
+                    <div class="col s12">
+                        <h4>Remover Campanha </h4>
+                        <p>Você quer mesmo deletar a campanha?</p>
+                    </div>
+                    <div class="input-field col s12">
+                        <%= submit_tag("Remover", class: "btn red right") %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

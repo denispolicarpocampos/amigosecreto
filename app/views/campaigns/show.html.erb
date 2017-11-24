@@ -52,7 +52,7 @@
 
           <div class="member_list">
             <% @campaign.members.each do |m| %>
-              <div class="member" id="member_<%= m.id %>">
+              <div class="member" id="member_<%= m.id %>" data-url="<%= member_path(m) %>">
                 <div class="row">
                   <div class="col s12 m5 input-field">
                     <input id="name" type="text" class="validate" value="<%= m.name %>">
@@ -110,3 +110,4 @@
     </div>
   </div>
 </div>
+<%= render "remove_member_modal" %>
