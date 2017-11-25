@@ -1,7 +1,7 @@
 <div id="remove_campaign_modal" class="modal">
     <div class="modal-content">
         <div class="row">
-            <%= form_for(@campaign, :method => :delete, class: "col s12 remove_campaign_form") do %>
+            <%= form_tag(campaign_path(@campaign), method: 'delete', class: 'col s12 remove_campaign_form') do %>
                 <div class="row">
                     <div class="col s12">
                         <h4>Remover Campanha </h4>
