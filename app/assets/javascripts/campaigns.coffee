@@ -18,18 +18,16 @@ $(document).on 'turbolinks:load', ->
 
   $('.remove_campaign').click (e) ->
     $('#remove_campaign_modal').modal('open')
-    return false
-
-  $('.remove_campaign_form').on 'submit', (e) ->
-    $.ajax e.target.action,
-        type: 'DELETE'
-        dataType: 'json',
-        data: {}
-        success: (data, text, jqXHR) ->
-          $(location).attr('href','/campaigns');
-        error: (jqXHR, textStatus, errorThrown) ->
-          Materialize.toast('Problema na remoção da Campanha', 4000, 'red')
-    return false
+    $('.remove_campaign_form').on 'submit', (e) ->
+      $.ajax e.target.action,
+          type: 'DELETE'
+          dataType: 'json',
+          data: {}
+          success: (data, text, jqXHR) ->
+            $(location).attr('href','/campaigns');
+          error: (jqXHR, textStatus, errorThrown) ->
+            Materialize.toast('Problema na remoção da Campanha', 4000, 'red')
+      return false
 
   $('.raffle_campaign').on 'submit', (e) ->
     $.ajax e.target.action,
