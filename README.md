@@ -1,24 +1,34 @@
-# README
+# amigosecreto
+A app created with Ruby on Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Introduction
+Is a app that you can make a secret santa.The raffle is made in the app itself and participants are warned with an email containing their secret friend.
 
-Things you may want to cover:
+![alt text](https://github.com/denispolicarpocampos/amigosecreto/blob/master/public/1.png?raw=true)
 
-* Ruby version
+## Technologies
+* [Ruby on Rails]
+* [JavaScript]
+* [PostgreSQL]
+* [Docker]
+* [TDD]
 
-* System dependencies
+## Amigosecreto - Examples
 
-* Configuration
+### Raffle
+![alt text](https://github.com/denispolicarpocampos/amigosecreto/blob/master/public/2.png?raw=true)
 
-* Database creation
+## Getting Started
+    1. docker-compose build
+    2. docker-compose run --rm app bundle install
+    2. docker-compose run --rm app bundle exec rake db:create db:migrate
+    3. docker-compose up
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+
+
+
+
